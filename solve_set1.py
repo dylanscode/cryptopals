@@ -14,5 +14,11 @@ class Set1(unittest.TestCase):
 		hout = "746865206b696420646f6e277420706c6179"
 		self.assertEqual(hout, set1.xor_hexstr(hstr1, hstr2))
 
+	def test_chal3(self):
+		with open("secret/chal3.txt") as f:
+			key = f.readline()
+		ctext = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736".decode('hex')
+		self.assertEqual(key, set1.break_single_xor(ctext))
+
 if __name__ == "__main__":
 	unittest.main()
