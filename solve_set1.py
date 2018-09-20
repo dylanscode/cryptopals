@@ -20,5 +20,10 @@ class Set1(unittest.TestCase):
 		ctext = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736".decode('hex')
 		self.assertEqual(key, set1.break_single_xor(ctext))
 
+	def test_chal5(self):
+		data = """Burning 'em, if you ain't quick and nimble
+I go crazy when I hear a cymbal"""
+		ctext = "0b3637272a2b2e63622c2e69692a23693a2a3c6324202d623d63343c2a26226324272765272a282b2f20430a652e2c652a3124333a653e2b2027630c692b20283165286326302e27282f".decode('hex')
+		self.assertEqual(ctext, set1.single_xor(data, "ICE"))
 if __name__ == "__main__":
 	unittest.main()
